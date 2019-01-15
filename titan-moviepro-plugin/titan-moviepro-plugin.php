@@ -1,7 +1,7 @@
 <?php
 /**
 * @since             1.0.0
-* @package           Salandash-user-editor
+* @package           titan-moviepro-plugin
 * 
 * @wordpress-plugin
 * Plugin Name: Movie Pro
@@ -37,3 +37,17 @@ function titan_movie_pro() {
   $plugin = new Submenu( new Submenu_Page( $serializer ) );
     $plugin->init();
 }
+
+//==============================================================
+// Shortcode management
+// Use [moviepro]
+//==============================================================
+
+function titan_moviepro_shortcode( $atts ) {
+   $a = shortcode_atts( array(
+      'name' => 'world'
+   ), $atts );
+   return '<div id="movie-container" class="moviepro"> ' . 'Hello ' . $a['name'] . '</div>';
+}
+
+add_shortcode( 'moviepro', 'titan_moviepro_shortcode' );
