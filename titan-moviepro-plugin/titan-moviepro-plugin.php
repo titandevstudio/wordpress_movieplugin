@@ -90,7 +90,7 @@ function titan_moviepro_shortcode( $atts ) {
    . '&include_adult='  . $a['include_adult']
    . '&include_video='  . $a['include_video']
    . '&page='           . $a['page']
-   . '$with_genre='     . implode('%2C', $a['genre']);
+   . '&with_genres='     . implode('%2C', $a['genre']);
 
    $result = http_GET_call($url);
 
