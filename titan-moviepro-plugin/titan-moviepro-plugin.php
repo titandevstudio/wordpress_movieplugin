@@ -6,7 +6,7 @@
 * @wordpress-plugin
 * Plugin Name: Movie Pro
 * Plugin URI: https://github.com/titandevstudio/wordpress_movieplugin
-* Description: A plugin to create sliders and carousels based on movie information gathered via API call to The Movie DB's API.
+* Description: A plugin to create sliders and carousels using movie information gathered via HTTP calls to The Movie DB's API.
 * Version: 0.1
 * Author: Javier Castillo
 * Author URI: 
@@ -42,11 +42,11 @@ function titan_movie_pro() {
 // Makes an http GET call using the specified URL and returns
 // the result.
 //==============================================================
-function http_GET_call(url) {
+function http_GET_call($url) {
   $curl = curl_init();
 
   curl_setopt_array($curl, array(
-    CURLOPT_URL => url,
+    CURLOPT_URL => $url,
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => "",
     CURLOPT_MAXREDIRS => 10,
@@ -76,9 +76,25 @@ function http_GET_call(url) {
 
 function titan_moviepro_shortcode( $atts ) {
    $a = shortcode_atts( array(
-      'name' => 'world'
+      'genre' => array(),
+      'language' => 'en-US',
+      'sort_by' => 'popularity.desc',
+      'include_adult' => 'false',
+      'include_video' => 'false',
+      'page' => 1
    ), $atts );
-   return '<div id="movie-container" class="moviepro"> ' . 'Hello ' . $a['name'] . '</div>';
+
+   $url = "https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=50c1cc8af5a5e07e52ed728d348a4919"
+   . '&language='       . $a['language']
+   . '&sort_by='        . $a['sort_by']
+   . '&include_adult='  . $a['include_adult']
+   . '&include_video='  . $a['include_video']
+   . '&page='           . $a['page']
+   . '$with_genre='     . implode('%2C', $a['genre']);
+
+   $result = http_GET_call($url);
+
+   return '<div id="movie-container" class="moviepro"> ' . $result . '</div>';
 }
 
 add_shortcode( 'moviepro', 'titan_moviepro_shortcode' );
