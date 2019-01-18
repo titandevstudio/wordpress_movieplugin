@@ -39,6 +39,37 @@ function titan_movie_pro() {
 }
 
 //==============================================================
+// Makes an http GET call using the specified URL and returns
+// the result.
+//==============================================================
+function http_GET_call(url) {
+  $curl = curl_init();
+
+  curl_setopt_array($curl, array(
+    CURLOPT_URL => url,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 30,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    CURLOPT_POSTFIELDS => "{}",
+  ));
+
+  $response = curl_exec($curl);
+  $err = curl_error($curl);
+
+  curl_close($curl);
+
+  if ($err) {
+    return " { 'cURL Error #':" . $err . " } ";
+  } else {
+    return $response;
+  }
+}
+
+// "https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=50c1cc8af5a5e07e52ed728d348a4919"
+//==============================================================
 // Shortcode management
 // Use [moviepro]
 //==============================================================
