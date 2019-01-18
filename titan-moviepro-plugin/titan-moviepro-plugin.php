@@ -84,7 +84,7 @@ function titan_moviepro_shortcode( $atts ) {
       'page' => 1
    ), $atts );
 
-   $url = "https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=50c1cc8af5a5e07e52ed728d348a4919"
+   $url = "https://api.themoviedb.org/3/discover/movie?api_key=50c1cc8af5a5e07e52ed728d348a4919"
    . '&language='       . $a['language']
    . '&sort_by='        . $a['sort_by']
    . '&include_adult='  . $a['include_adult']
