@@ -68,15 +68,22 @@ function http_GET_call($url) {
   }
 }
 
+//==============================================================
+// Takes the result from the API and creates an HTML unordered
+// list
+//==============================================================
+function create_movie_list($movies){
+
+}
+
 // "https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=50c1cc8af5a5e07e52ed728d348a4919"
 //==============================================================
 // Shortcode management
 // Use [moviepro]
 //==============================================================
-
 function titan_moviepro_shortcode( $atts ) {
    $a = shortcode_atts( array(
-      'genre' => array(),
+      'genre' => '',
       'language' => 'en-US',
       'sort_by' => 'popularity.desc',
       'include_adult' => 'false',
@@ -90,7 +97,7 @@ function titan_moviepro_shortcode( $atts ) {
    . '&include_adult='  . $a['include_adult']
    . '&include_video='  . $a['include_video']
    . '&page='           . $a['page']
-   . '&with_genres='     . implode('%2C', $a['genre']);
+   . '&with_genres='     . urlencode(implode('%2C', array( $a['genre'])));
 
    $result = http_GET_call($url);
 
