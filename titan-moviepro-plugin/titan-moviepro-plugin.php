@@ -73,7 +73,17 @@ function http_GET_call($url) {
 // list
 //==============================================================
 function create_movie_list($movies){
-
+  $data = json_decode($movies);
+  $baseURL = 'https://image.tmdb.org/t/p/';
+  $imgSize = 'w300';
+  $ul = '<ul class="moviepro-list">';
+  foreach ($data->results as $movie) {
+    $ul .= '<li class="moviepro-listItem">'
+            . '<img src="' . $baseURL . $imgSize . $movie->{"poster_path"} . '" ' . 'alt="' . $movie->title . '"' . '/>'
+            . '</li>';
+  }
+  $ul .= '</ul>';
+  return $ul;
 }
 
 // "https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=50c1cc8af5a5e07e52ed728d348a4919"
@@ -99,7 +109,7 @@ function titan_moviepro_shortcode( $atts ) {
    . '&page='           . $a['page']
    . '&with_genres='     . urlencode(implode('%2C', array( $a['genre'])));
 
-   $result = http_GET_call($url);
+   $result = create_movie_list(http_GET_call($url));
 
    return '<div id="movie-container" class="moviepro"> ' . $result . '</div>';
 }
