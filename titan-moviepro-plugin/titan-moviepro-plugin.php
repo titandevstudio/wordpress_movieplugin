@@ -7,8 +7,8 @@
 * Plugin Name: Movie Pro
 * Plugin URI: https://github.com/titandevstudio/wordpress_movieplugin
 * Description: A plugin to create sliders and carousels using movie information gathered via HTTP calls to The Movie DB's API.
-* Version: 0.1
-* Author: Javier Castillo
+* Version: 0.7
+* Author: Titan Development Studio
 * Author URI: 
 * License: MIT
 */
