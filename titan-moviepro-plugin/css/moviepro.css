@@ -1,0 +1,62 @@
+#movie-container{
+    vertical-align:middle;
+    color:#fff;
+    width: 100%;
+    margin: 0 !important;
+}
+
+.moviepro-list {
+    text-align: center;
+    margin: auto;
+}
+
+.moviepro-listItem{
+	display: flex;
+	align-items: center;
+}
+
+.moviepro-listItem a span {
+	display:inline;
+    display:inline-table;
+    display:inline-block;
+    vertical-align:middle;
+}
+
+.slick-list{
+	display:inline-block !important;
+    width:80%;
+}
+
+@media only screen and (max-width: 768px){
+    .slick-list{
+        width: 56% !important;
+    }
+    
+    #movie-container{
+    	/*background-image:url('/wp-content/uploads/2018/11/backgroundMovil2.png');*/
+    }
+}
+
+@media all and (min-width: 1400px){
+	.slick-list{
+        width: 68% !important;
+    }
+}
+
+.slick-list a span h3{
+    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color:#fff;
+    font-size:1.4em;
+    text-align:center;
+}
+
+.slick-next, .slick-prev{
+	position:relative;
+    bottom:80px;
+    padding: 1.6em 1em;
+}
+.moviepro-listItem {
+	width:200px;
+    height:200px;
+    padding: 1em;
+}
