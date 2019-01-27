@@ -3,7 +3,7 @@
  * Performs all sanitization functions required to save the option values to
  * the database.
  *
- * @package Custom_Admin_Settings
+ * @package titan-moviepro-plugin
  */
  
 /**
@@ -13,7 +13,7 @@
  * This will also check the specified nonce and verify that the current user has
  * permission to save the data.
  *
- * @package Custom_Admin_Settings
+ * @package titan-moviepro-plugin
  */
 class Serializer {
  

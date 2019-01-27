@@ -9,13 +9,13 @@
 * Description: A plugin to create sliders and carousels using movie information gathered via HTTP calls to The Movie DB's API.
 * Version: 0.7
 * Author: Titan Development Studio
-* Author URI: 
+* Author URI: https://titandevstudio.com
 * License: MIT
 */
 
-//==============================================================
-// If this file is called directly, abort.
-//==============================================================
+/**
+* If this file is called directly, abort.
+*/
 if ( ! defined( 'WPINC' ) ) {
      die;
 }
@@ -24,10 +24,9 @@ if(!class_exists('WP_List_Table')){
    require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 }
 
-// ==============================================
-//  Get Plugin Version
-// ==============================================
-
+/**
+ * Get Plugin Version.
+ */
 function titan_moviepro_plugin_version() {
   if ( ! function_exists( 'get_plugins' ) )
     require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -36,6 +35,9 @@ function titan_moviepro_plugin_version() {
   return $plugin_folder[$plugin_file]['Version'];
 }
 
+/**
+ * Enqueues css styles and js scripts. 
+ */
 function titan_moviepro_enqueue_resources() {
   wp_enqueue_style( 'moviepro_style', plugins_url( '/css/moviepro.css' , __FILE__ ), array(), titan_moviepro_plugin_version(), 'all');
   wp_enqueue_style( 'moviepro_carousel_style', plugins_url( '/css/slick/slick.css' , __FILE__ ), array(), '1.9', 'all');
@@ -46,12 +48,13 @@ function titan_moviepro_enqueue_resources() {
 }
 add_action('wp_enqueue_scripts', 'titan_moviepro_enqueue_resources');
 
-// Include the dependencies needed to instantiate the plugin.
+/**
+* Include the dependencies needed to instantiate the plugin from the 'admin' folder.
+*/
 foreach ( glob( plugin_dir_path( __FILE__ ) . 'admin/*.php' ) as $file ) {
     include_once $file;
 }
- 
-add_action( 'plugins_loaded', 'titan_movie_pro' );
+
 /**
  * Starts the plugin.
  *
@@ -63,11 +66,12 @@ function titan_movie_pro() {
   $plugin = new Submenu( new Submenu_Page( $serializer ) );
     $plugin->init();
 }
+add_action( 'plugins_loaded', 'titan_movie_pro' );
 
-//==============================================================
-// Makes an http GET call using the specified URL and returns
-// the result.
-//==============================================================
+/**
+* Makes an http GET call using the specified URL and returns
+* the result.
+*/
 function http_GET_call($url) {
   $curl = curl_init();
 
@@ -94,10 +98,13 @@ function http_GET_call($url) {
   }
 }
 
-//==============================================================
-// Takes the result from the API and creates an HTML unordered
-// list
-//==============================================================
+/**
+* Takes the result from the API and creates an HTML unordered
+* list.
+* 
+* @param Movies $movies A list of movies in JSON format retrieved using
+* The Movie DB api.
+*/
 function create_movie_list($movies){
   $data = json_decode($movies);
   $baseURL = 'https://image.tmdb.org/t/p/';
@@ -113,10 +120,10 @@ function create_movie_list($movies){
 }
 
 // "https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=50c1cc8af5a5e07e52ed728d348a4919"
-//==============================================================
-// Shortcode management
-// Use [moviepro]
-//==============================================================
+/**
+* Shortcode management.
+* Use [moviepro]
+*/
 function titan_moviepro_shortcode( $atts ) {
    $a = shortcode_atts( array(
       'genre' => '',
@@ -139,5 +146,4 @@ function titan_moviepro_shortcode( $atts ) {
 
    return '<div id="movie-container" class="moviepro"> ' . $result . '</div>';
 }
-
 add_shortcode( 'moviepro', 'titan_moviepro_shortcode' );

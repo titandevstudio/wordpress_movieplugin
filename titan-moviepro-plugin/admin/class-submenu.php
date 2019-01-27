@@ -2,7 +2,7 @@
 /**
  * Creates the submenu item for the plugin.
  *
- * @package Salandash-user-editor
+ * @package titan-moviepro-plugin
  */
  
 /**
@@ -11,7 +11,7 @@
  * Registers a new menu item under 'Users' and uses the dependency passed into
  * the constructor in order to display the page corresponding to this menu item.
  *
- * @package Salandash-user-editor
+ * @package titan-moviepro-plugin
  */
 class Submenu {
  
