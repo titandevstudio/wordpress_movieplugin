@@ -31,6 +31,11 @@
     .slick-list{
         width: 56% !important;
     }
+
+    .slick-next, .slick-prev{
+        margin: 0;
+    }
+
     
     #movie-container{
     	/*background-image:url('/wp-content/uploads/2018/11/backgroundMovil2.png');*/
@@ -54,7 +59,10 @@
 	position:relative;
     bottom:80px;
     padding: 1.6em 1em;
+    margin: 0 20px;
+    bottom: 130px;
 }
+
 .moviepro-listItem {
 	width:200px;
     height:200px;
