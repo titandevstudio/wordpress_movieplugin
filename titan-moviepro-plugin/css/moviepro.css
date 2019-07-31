@@ -43,6 +43,12 @@
     bottom: 130px;
 }
 
+.slick-next:hover , 
+.slick-prev:hover {
+    background-color: #a6150d;
+    color: #fff;
+}
+
 .moviepro-listItem {
     width:200px;
     height:200px;
