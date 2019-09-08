@@ -82,7 +82,7 @@
   transition: all 5s ease-in-out;
 }
 
-.popup h2 {
+.popup h3 {
   margin-top: 0;
   color: #333;
   font-family: Tahoma, Arial, sans-serif;
@@ -98,9 +98,10 @@
   color: #333;
 }
 .popup .close:hover {
-  color: #06D85F;
+  color: #a6150d;
 }
 .popup .content {
+  color: #333;
   max-height: 50%;
   overflow: auto;
 }
