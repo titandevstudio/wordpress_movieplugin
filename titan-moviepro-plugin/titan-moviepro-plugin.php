@@ -143,6 +143,6 @@ function titan_moviepro_shortcode( $atts ) {
 
    $result = create_movie_list(http_GET_call($url));
 
-   return '<div id="movie-container" class="moviepro"> ' . $result . '</div>';
+   return '<div id="movie-list-'. rand() .'" class="moviepro movieList-container"> ' . $result . '</div>';
 }
 add_shortcode( 'moviepro', 'titan_moviepro_shortcode' );
