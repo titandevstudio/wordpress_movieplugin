@@ -111,10 +111,24 @@ function create_movie_list($movies){
   $list = '<div class="moviepro-list">';
   foreach ($data->results as $movie) {
     $list .= '<div' . ' id="'. $movie->id . '"' .' class="moviepro-listItem">'
+            . '<a href="#popup-info-' . $movie->id . '" >'
             . '<img src="' . $baseURL . $imgSize . $movie->{"poster_path"} . '" ' . 'alt="' . $movie->title . '"' . '/>'
+            . '</a>'
             . '</div>';
+    $listInfo .= '<div id="popup-info-' . $movie->id . '" class="overlay">'
+                .  '<div class="popup">'
+                  .  '<h2> Title: ' . $movie->title . '</h2>'
+                  .  '<a class="close" href="#">&times;</a>'
+                  .  '<div class="content">'
+                  .  '<p> Overview: ' . $movie->overview . '</p>'
+                  .  '<h4> Overall rate: ' . $movie->vote_average . '/10' . ' </h4>'
+                  .  '</div>'
+                .  '</div>'
+              .  '</div>';
   }
   $list .= '</div>';
+  $list .= $listInfo;
+
   return $list;
 }
 
