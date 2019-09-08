@@ -57,16 +57,15 @@ foreach ( glob( plugin_dir_path( __FILE__ ) . 'admin/*.php' ) as $file ) {
 
 /**
  * Starts the plugin.
- *
  * @since 1.0.0
  */
+add_action( 'plugins_loaded', 'titan_movie_pro' );
 function titan_movie_pro() {
   $serializer = new Serializer();
   $serializer->init();
   $plugin = new Submenu( new Submenu_Page( $serializer ) );
     $plugin->init();
 }
-add_action( 'plugins_loaded', 'titan_movie_pro' );
 
 /**
 * Makes an http GET call using the specified URL and returns
@@ -126,7 +125,7 @@ function create_movie_list($movies){
 */
 function titan_moviepro_shortcode( $atts ) {
    $a = shortcode_atts( array(
-      'genre' => '',
+      'genre' => '28',
       'language' => 'en-US',
       'sort_by' => 'popularity.desc',
       'include_adult' => 'false',
