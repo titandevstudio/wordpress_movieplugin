@@ -42,7 +42,8 @@ Slick slider configuration
 		});
 
 		$('.moviepro-listItem').click(function(e){
-			let popup = '.popup-info-' + e.id;
+			let popup = '.popup-info-' + this.id;
+			console.log(popup);
 			if ($(popup).hasClass('.show-overlay')) {
 				$(popup).removeClass('.show-overlay');
 			} else {
