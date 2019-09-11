@@ -9,7 +9,7 @@ Slick slider configuration
 		  dots: false,
 		  infinite: false,
 		  speed: 300,
-		  slidesToShow: 4,
+		  slidesToShow: 6,
 		  slidesToScroll: 1,
 		  centerMode: true,
 		  centerPadding: '0px',
