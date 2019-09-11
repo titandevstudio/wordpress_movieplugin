@@ -111,9 +111,9 @@ function create_movie_list($movies){
   $list = '<div class="moviepro-list">';
   foreach ($data->results as $movie) {
     $list .= '<div' . ' id="'. $movie->id . '"' .' class="moviepro-listItem">'
-            . '<a href="#popup-info-' . $movie->id . '" >'
+            // . '<a href="#popup-info-' . $movie->id . '" >'
             . '<img src="' . $baseURL . $imgSize . $movie->{"poster_path"} . '" ' . 'alt="' . $movie->title . '"' . '/>'
-            . '</a>'
+            // . '</a>'
             . '</div>';
     $listInfo .= '<div id="popup-info-' . $movie->id . '" class="overlay">'
                 .  '<div class="popup">'

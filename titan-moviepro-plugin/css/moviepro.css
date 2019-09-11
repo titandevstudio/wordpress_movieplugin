@@ -72,6 +72,11 @@
   opacity: 1;
 }
 
+.show-overlay {
+  visibility: visible;
+  opacity: 1;
+}
+
 .popup {
   margin: 70px auto;
   padding: 20px;
