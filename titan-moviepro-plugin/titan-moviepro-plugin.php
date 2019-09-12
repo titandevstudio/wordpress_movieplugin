@@ -118,7 +118,7 @@ function create_movie_list($movies){
     $listInfo .= '<div id="popup-info-' . $movie->id . '" class="overlay">'
                 .  '<div class="popup">'
                   .  '<h3> Title: ' . $movie->title . '</h3>'
-                  .  '<a class="close" href="#">&times;</a>'
+                  .  '<a class="close-popup" href="#">&times;</a>'
                   .  '<div class="content">'
                   .  '<p> Overview: ' . $movie->overview . '</p>'
                   .  '<h4> Overall rate: ' . $movie->vote_average . '/10' . ' </h4>'

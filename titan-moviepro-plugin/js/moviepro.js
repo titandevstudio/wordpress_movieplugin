@@ -45,10 +45,17 @@ Slick slider configuration
 			let popup = '#popup-info-' + e.target.id;
 			console.log(e.target.id);
 			console.log(popup);
+			if (!$(popup).hasClass('show-overlay')) {
+				$(popup).addClass('show-overlay');
+			}
+		});
+
+		$('.close-popup').click(function(e){
+			let popup = '#popup-info-' + e.target.id;
+			console.log(e.target.id);
+			console.log(popup);
 			if ($(popup).hasClass('show-overlay')) {
 				$(popup).removeClass('show-overlay');
-			} else {
-				$(popup).addClass('show-overlay');
 			}
 		});
 	});
