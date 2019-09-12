@@ -52,7 +52,7 @@ Slick slider configuration
 
 		$('.close-popup').click(function(e){
 			e.preventDefault();
-			let popup = '#' + e.target.dataset.popupId;
+			let popup = '#' + e.target.dataset.popupid;
 			$(popup).removeClass('show-overlay');
 		});
 	});
