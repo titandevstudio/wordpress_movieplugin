@@ -11,7 +11,7 @@ Slick slider configuration
 		  speed: 300,
 		  slidesToShow: 6,
 		  slidesToScroll: 1,
-		  centerMode: true,
+		  centerMode: false,
 		  centerPadding: '0px',
 		  variableWidth: true,
 		  prevArrow: '<button type="button" class="slick-prev"><i class="fa fa-angle-left fa-2x"></i></button>',
