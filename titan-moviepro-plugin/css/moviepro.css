@@ -82,7 +82,7 @@
   padding: 20px;
   background: #fff;
   border-radius: 5px;
-  width: 30%;
+  width: 50%;
   position: relative;
   transition: all 5s ease-in-out;
 }
@@ -91,6 +91,7 @@
   margin-top: 0;
   color: #333;
   font-family: Tahoma, Arial, sans-serif;
+  margin-right:20px;
 }
 .popup .close {
   position: absolute;
