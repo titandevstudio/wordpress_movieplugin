@@ -42,7 +42,7 @@ Slick slider configuration
 		});
 
 		$('.movieImg').click(function(e){
-			let popup = '.popup-info-' + e.target.id;
+			let popup = '#popup-info-' + e.target.id;
 			console.log(e.target.id);
 			console.log(popup);
 			if ($(popup).hasClass('show-overlay')) {
