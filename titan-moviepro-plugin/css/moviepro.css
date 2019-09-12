@@ -66,6 +66,7 @@
   transition: opacity 500ms;
   visibility: hidden;
   opacity: 0;
+  z-index: 1;
 }
 .overlay:target {
   visibility: visible;
@@ -102,6 +103,7 @@
   font-weight: bold;
   text-decoration: none;
   color: #333;
+  background: none;
 }
 .popup .close:hover {
   color: #a6150d;
