@@ -110,10 +110,10 @@ function create_movie_list($movies){
   $imgSize = 'w300';
   $list = '<div class="moviepro-list">';
   foreach ($data->results as $movie) {
-    $list .= '<div' . ' id="'. $movie->id . '"' .' class="moviepro-listItem">'
-            . '<a href="#popup-info-' . $movie->id . '" >'
-            . '<img src="' . $baseURL . $imgSize . $movie->{"poster_path"} . '" ' . 'alt="' . $movie->title . '"' . '/>'
-            . '</a>'
+    $list .= '<div class="moviepro-listItem">'
+            // . '<a href="#popup-info-' . $movie->id . '" >'
+            . '<img ' . ' id="'. $movie->id . '"' . 'class="movieImg" src="' . $baseURL . $imgSize . $movie->{"poster_path"} . '" ' . 'alt="' . $movie->title . '"' . '/>'
+            // . '</a>'
             . '</div>';
     $listInfo .= '<div id="popup-info-' . $movie->id . '" class="overlay">'
                 .  '<div class="popup">'

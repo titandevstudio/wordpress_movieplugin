@@ -41,15 +41,15 @@ Slick slider configuration
 		    }]
 		});
 
-		// $('.moviepro-listItem').click(function(e){
-		// 	let popup = '.popup-info-' + e.target.id;
-		// 	console.log(e.target.id);
-		// 	console.log(popup);
-		// 	if ($(popup).hasClass('.show-overlay')) {
-		// 		$(popup).removeClass('.show-overlay');
-		// 	} else {
-		// 		$(popup).addClass('.show-overlay');
-		// 	}
-		// });
+		$('.movieImg').click(function(e){
+			let popup = '.popup-info-' + e.target.id;
+			console.log(e.target.id);
+			console.log(popup);
+			if ($(popup).hasClass('show-overlay')) {
+				$(popup).removeClass('show-overlay');
+			} else {
+				$(popup).addClass('show-overlay');
+			}
+		});
 	});
 })(jQuery)
